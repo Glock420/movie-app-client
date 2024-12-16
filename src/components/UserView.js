@@ -17,7 +17,7 @@ export default function UserView({ movies }) {
 
                                     <Card.Body className="h-100">
                                         <Card.Text className="mb-3">{movie.director}</Card.Text>
-                                        <Link className = "btn btn-primary" to = {`/movies/${movie._id}`} >Details</Link>
+                                        <Link className = "btn btn-primary" to = {`/movies/details/${movie._id}`} >Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>
