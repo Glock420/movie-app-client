@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 
 import UserView from '../components/UserView';
-// import AdminView from '../components/UserView';
+import AdminView from '../components/AdminView';
 
 import UserContext from '../context/UserContext';
 
@@ -23,6 +23,9 @@ export default function Movies() {
 	}, [user]);
 
 	return(
-		<UserView movies={movies} />
+		(user.isAdmin === true) ?
+			<AdminView movies={movies} />
+		:
+			<UserView movies={movies} />
 	);
 }

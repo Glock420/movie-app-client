@@ -17,7 +17,7 @@ export default function AppNavBar() {
 				    <Nav className="ms-auto">
 				    	<Nav.Link as={NavLink} to="/" exact="true">Home</Nav.Link>
 				    	{(user.id !== null)?
-				    		user.isAdmin?
+				    		(user.isAdmin === true)?
 						        <>
 						        	<Nav.Link as={NavLink} to="/movies" exact="true">Dashboard</Nav.Link>
 						        	<Nav.Link as={NavLink} to="/logout" exact="true">Logout</Nav.Link>
