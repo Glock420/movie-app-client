@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
+import Logout from './pages/Logout';
 
 function App() {
     const [user, setUser] = useState({
@@ -68,6 +69,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/movies" element={<Movies />} />
                 <Route path="/movies/details/:movieId" element={<MovieDetails />} />
+                <Route path="/logout" element={<Logout />} />
               </Routes>
             </Container>
           </Router>
