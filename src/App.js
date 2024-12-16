@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Movies from './pages/Movies';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
     const [user, setUser] = useState({
@@ -66,6 +67,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/movies" element={<Movies />} />
+                <Route path="/movies/details/:movieId" element={<MovieDetails />} />
               </Routes>
             </Container>
           </Router>
