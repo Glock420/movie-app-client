@@ -1,14 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import { Row, Col, Button, Card, Form } from 'react-bootstrap';
 import { Navigate, useParams, useNavigate, Link } from 'react-router-dom';
-import { Notyf } from 'notyf';
-
-import ProductCatalog from '../components/ProductCatalog';
-import AdminPanel from '../components/AdminPanel';
 
 import UserContext from '../context/UserContext';
 
-export default function Products() {
+import { Notyf } from 'notyf';
+
+export default function MovieDetails() {
     const { user } = useContext(UserContext);
 
     const { movieId } = useParams();
@@ -25,7 +23,7 @@ export default function Products() {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        fetch(`https://movieapp-api-lms1.onrender.com/movies/getMovie/${productId}`)
+        fetch(`https://movieapp-api-lms1.onrender.com/movies/getMovie/${movieId}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -41,7 +39,7 @@ export default function Products() {
             //     setPrice(data.price);
             // }
         })
-    }, [productId])
+    }, [movieId])
 
     return(
         user.isAdmin ?
@@ -50,10 +48,11 @@ export default function Products() {
             <Row className="d-flex justify-content-center mt-5">
                 <Col className="col-8">
                     <Card bg="dark" className="text-white">
-                        <Card.Header as="h3" className="text-center">{name}</Card.Header>
+                        <Card.Header as="h3" className="text-center">{title}</Card.Header>
                         <Card.Body>
-                            <Card.Text>{description}</Card.Text>
-                            <Card.Text className="text-warning">Price: ₱{price}</Card.Text>
+                                <Card.Text className="text-warning">Director: {director}</Card.Text>
+                            <Card.Text>Synopsis: {description}</Card.Text>
+                            <Card.Text className="text-warning"></Card.Text>
                          </Card.Body>
                     </Card>
                 </Col>
